@@ -13,6 +13,7 @@ export default async function handler(
   }
   //@ts-ignore
   const prismaUser = await prisma.user.findUnique({
+    //@ts-ignore
     where: { email: session?.user?.email },
   });
 
