@@ -25,7 +25,8 @@ export default async function handler(
     // Get the user
     //@ts-ignore
     const prismaUser = await prisma.user.findUnique({
-      where: { email: session?.user?.email },
+      //@ts-ignore
+      where: { email: session.user.email },
     });
 
     //check title length

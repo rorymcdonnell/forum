@@ -22,7 +22,8 @@ export default async function handler(
       //@ts-ignore
       const data = await prisma.user.findUnique({
         where: {
-          email: session.user?.email,
+          //@ts-ignore
+          email: session.user.email,
         },
         include: {
           Post: {
