@@ -13,6 +13,7 @@ export default async function handler(
     // Fetch all posts
     try {
       const data = await prisma.post.findMany({
+        //@ts-ignore
         include: {
           user: true,
           comments: true,

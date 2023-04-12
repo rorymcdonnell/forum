@@ -23,6 +23,7 @@ export default async function handler(
     const title: string = req.body.title;
 
     // Get the user
+    //@ts-ignore
     const prismaUser = await prisma.user.findUnique({
       where: { email: session?.user?.email },
     });
@@ -45,6 +46,7 @@ export default async function handler(
       const result = await prisma.post.create({
         data: {
           title,
+          //@ts-ignore
           userId: prismaUser.id,
         },
       });

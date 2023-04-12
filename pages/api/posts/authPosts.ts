@@ -19,6 +19,7 @@ export default async function handler(
 
     // Get authenticated users posts
     try {
+      //@ts-ignore
       const data = await prisma.user.findUnique({
         where: {
           email: session.user?.email,

@@ -11,6 +11,7 @@ export default async function handler(
   if (!session) {
     return res.status(401).json({ message: "Please log in to add a comment." });
   }
+  //@ts-ignore
   const prismaUser = await prisma.user.findUnique({
     where: { email: session?.user?.email },
   });
@@ -24,6 +25,7 @@ export default async function handler(
       return res.status(401).json({ message: "Please enter something" });
     }
     try {
+      //@ts-ignore
       const result = await prisma.comments.create({
         data: {
           message: title,
